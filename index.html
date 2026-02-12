@@ -1,0 +1,2932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Construction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --primary:#c6a97e;
+  --dark:#3c3a47;
+  --light:#f4f4f4;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+  background:var(--dark);
+  color:#fff;
+}
+
+/* ================= LEFT SIDEBAR ================= */
+
+.sidebar{
+  position:fixed;
+  left:0;
+  top:0;
+  height:100%;
+  width:90px;
+  background:#efefef;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:30px 0;
+  z-index:100;
+}
+
+.logo{
+  font-weight:700;
+  font-size:14px;
+  color:#000;
+  text-align:center;
+  letter-spacing:2px;
+}
+
+.social{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.social a{
+  text-decoration:none;
+  color:#777;
+  font-size:13px;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.social a:hover{
+  color:var(--primary);
+  transform:translateX(5px);
+}
+
+.scroll-text{
+  transform:rotate(-90deg);
+  font-size:12px;
+  letter-spacing:3px;
+  color:#777;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:absolute;
+  top:0;
+  left:90px;
+  width:calc(100% - 90px);
+  padding:30px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
+}
+
+nav{
+  display:flex;
+  gap:40px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#fff;
+  letter-spacing:2px;
+  font-size:14px;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:var(--primary);
+  transition:.4s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.btn-visit{
+  background:#fff;
+  color:#000;
+  padding:12px 25px;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:2px;
+  transition:.4s;
+}
+
+.btn-visit:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:#fff;
+  transition:.4s;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  margin-left:90px;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+  position:relative;
+}
+
+.hero-text{
+  max-width:600px;
+  animation:fadeUp 1.2s ease forwards;
+  opacity:0;
+}
+
+.hero-text h1{
+  font-size:48px;
+  font-weight:300;
+  letter-spacing:6px;
+  color:var(--primary);
+  margin-bottom:25px;
+}
+
+.hero-text p{
+  color:#ccc;
+  margin-bottom:40px;
+  line-height:1.6;
+}
+
+.hero-text button{
+  padding:15px 40px;
+  border:none;
+  background:#fff;
+  color:#000;
+  letter-spacing:3px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.hero-text button:hover{
+  background:var(--primary);
+  color:#fff;
+  transform:translateY(-5px);
+}
+
+.hero-image{
+  width:50%;
+  height:80%;
+  background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+  clip-path:polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  animation:zoomIn 1.5s ease forwards;
+  opacity:0;
+}
+
+.slide-box{
+  position:absolute;
+  right:60px;
+  bottom:80px;
+  background:#fff;
+  color:#000;
+  padding:15px 30px;
+  font-size:18px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  animation:fadeUp 1.5s ease forwards;
+  opacity:0;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+  from{ transform:translateY(40px); opacity:0;}
+  to{ transform:translateY(0); opacity:1;}
+}
+
+@keyframes zoomIn{
+  from{ transform:scale(1.1); opacity:0;}
+  to{ transform:scale(1); opacity:1;}
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+.sidebar{
+  display:none;
+}
+
+header{
+  left:0;
+  width:100%;
+  padding:20px;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  height:100vh;
+  width:260px;
+  background:var(--dark);
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  transition:.4s;
+}
+
+nav.active{
+  right:0;
+}
+
+.btn-visit{
+  display:none;
+}
+
+.hamburger{
+  display:flex;
+}
+
+.hero{
+  margin-left:0;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px 40px;
+  height:auto;
+}
+
+.hero-text h1{
+  font-size:28px;
+  letter-spacing:3px;
+}
+
+.hero-image{
+  width:100%;
+  height:300px;
+  margin-top:40px;
+  clip-path:none;
+}
+
+.slide-box{
+  position:relative;
+  right:auto;
+  bottom:auto;
+  margin-top:30px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+ <div class="logo">
+   <img src="logo.png" width="45px" height="45px" alt="Logo">
+   <div class="logo-text">
+      <!-- <span>GSQUARE</span> -->
+      <strong>STACKLY</strong>
+   </div>
+</div>
+
+
+  <div class="social">
+    <a href="404.html">FB</a>
+    <a href="404.html">IN</a>
+    <a href="404.html">LI</a>
+    <a href="404.html">TW</a>
+  </div>
+
+  <div class="scroll-text">SCROLL DOWN</div>
+</div>
+
+<header>
+  <nav id="navMenu">
+    <a href="404.html" style="color:var(--primary)">HOME</a>
+    <a href="404.html">ABOUT US</a>
+    <a href="404.html">AMENITIES</a>
+    <a href="404.html">AVAILABILITY</a>
+    <a href="404.html">BUILDINGS</a>
+    <a href="404.html">PAGES</a>
+  </nav>
+
+  <a href="404.html" class="btn-visit">SCHEDULE VISIT</a>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-text">
+    <h1>PREMIUM PRIVATE<br>CONSTRUCTION COMPANY</h1>
+    <p>Ullamcorper morbi tincidunt ornare massa. Ut pharetra sit amet aliquam id diam maecenas ultricies mi.</p>
+    <button>KNOW MORE</button>
+  </div>
+
+  <div class="hero-image"></div>
+
+  <!-- <div class="slide-box">
+    <span>1 / 3</span>
+    <span class="arrow">→</span>
+  </div> -->
+
+</section>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", ()=>{
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#c6a97e;      /* Beige highlight */
+  --bg:#f5f5f5;          /* White Smoke */
+  --heading:white;     /* Dark soft */
+  --text:white
+  ;           /* Paragraph */
+}
+
+
+/* *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+
+body{
+  background:var(--light);
+  overflow-x:hidden;
+} 
+
+/* ================= MAIN SECTION ================= */
+
+.contractor{
+  padding:100px 6%;
+}
+
+.contractor-wrapper{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr 1.5fr;
+  align-items:center;
+  gap:60px;
+}
+
+/* LEFT IMAGE */
+.left-image{
+  height:380px;
+  background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  opacity:0;
+  transform:translateX(-40px);
+  transition:1s;
+}
+
+/* CENTER CONTENT */
+.content{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.content h2{
+  font-size:42px;
+  letter-spacing:8px;
+  color:#333;
+  margin-bottom:30px;
+}
+
+.content p{
+  color:var(--text);
+  line-height:1.8;
+  font-size:15px;
+}
+
+/* RIGHT LARGE IMAGE */
+.right-image{
+  height:550px;
+  background:url('https://images.unsplash.com/photo-1505842465776-3d90f616310f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  opacity:0;
+  transform:translateX(40px);
+  transition:1s;
+}
+
+/* ================= COUNTER ================= */
+
+.stats{
+  margin-top:100px;
+  display:flex;
+  justify-content:space-around;
+  text-align:center;
+}
+
+.stat h3{
+  font-size:70px;
+  font-weight:300;
+  color:var(--primary);
+}
+
+.stat p{
+  letter-spacing:4px;
+  color:#666;
+  margin-top:15px;
+}
+
+/* ================= ANIMATION ACTIVE ================= */
+
+.show{
+  opacity:1 !important;
+  transform:translate(0) !important;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+.contractor-wrapper{
+  grid-template-columns:1fr;
+  text-align:center;
+}
+
+.left-image,
+.right-image{
+  height:280px;
+}
+
+.content h2{
+  font-size:28px;
+  letter-spacing:4px;
+}
+
+.stats{
+  flex-direction:column;
+  gap:50px;
+}
+}
+
+
+
+/* Section */
+.customize{
+  padding: 80px 5%;
+  background: whitesmoke;
+  overflow: hidden;
+}
+
+.container{
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+.section-header{
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.section-header h2{
+  font-size: 36px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.section-header p{
+  max-width: 650px;
+  margin: auto;
+  color: #777;
+  line-height: 1.6;
+}
+
+/* Grid */
+.house-grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+/* Card */
+.house-card{
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.4s;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.house-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Image */
+.image-box{
+  position: relative;
+  overflow: hidden;
+}
+
+.image-box img{
+  width: 100%;
+  display: block;
+  transition: 0.6s;
+}
+
+.house-card:hover img{
+  transform: scale(1.1);
+}
+
+/* Featured Badge */
+.badge{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #d2b48c;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+/* Overlay Blur */
+.overlay{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.3);
+  text-align: center;
+}
+
+.overlay span{
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+/* Content */
+.card-content{
+  padding: 25px;
+}
+
+.card-content h3{
+  font-size: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.card-content p{
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.price{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price .old{
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.price .new{
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Animation */
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media(max-width: 992px){
+  .house-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width: 768px){
+  .house-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2{
+    font-size: 26px;
+  }
+}
+/* VIDEO MODAL */
+.video-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  z-index: 999;
+}
+
+.video-modal.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-wrapper{
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+  animation: zoomIn 0.4s ease;
+}
+
+.video-wrapper iframe{
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.close-btn{
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes zoomIn{
+  from{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .video-wrapper iframe{
+    height: 300px;
+  }
+}
+/* Section */
+.living-plan{
+  background: whitesmoke;
+  padding: 80px 5%;
+  overflow: hidden;
+}
+
+.living-container{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* LEFT IMAGE */
+.living-image{
+  flex: 1;
+  position: relative;
+  animation: fadeLeft 1s ease forwards;
+}
+
+.living-image img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Play Button */
+.play-btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90px;
+  height: 90px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: 0.3s;
+}
+
+.play-btn span{
+  font-size: 28px;
+  color: #333;
+}
+
+.play-btn:hover{
+  background: #d2b48c;
+  color: white;
+}
+
+/* RIGHT CONTENT */
+.living-content{
+  flex: 1;
+  animation: fadeRight 1s ease forwards;
+}
+
+.living-content h2{
+  font-size: 32px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.living-content p{
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
+/* Button */
+.plan-btn{
+  display: inline-block;
+  padding: 14px 35px;
+  background: #d2b48c;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-bottom: 40px;
+}
+
+.plan-btn:hover{
+  background: #b8956a;
+  transform: translateY(-3px);
+}
+
+/* Floor Plan */
+.floor-plan img{
+  width: 200px;
+  opacity: 0.6;
+  transition: 0.4s;
+}
+
+.floor-plan img:hover{
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeLeft{
+  from{
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight{
+  from{
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse{
+  0%{ box-shadow: 0 0 0 0 rgba(210,180,140,0.5);}
+  70%{ box-shadow: 0 0 0 20px rgba(210,180,140,0);}
+  100%{ box-shadow: 0 0 0 0 rgba(210,180,140,0);}
+}
+
+/* Responsive */
+@media(max-width: 992px){
+  .living-container{
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .living-content{
+    text-align: center;
+  }
+
+  .living-content p{
+    margin: auto;
+  }
+}
+
+@media(max-width: 576px){
+  .living-content h2{
+    font-size: 24px;
+  }
+
+  .play-btn{
+    width: 70px;
+    height: 70px;
+  }
+
+  .floor-plan img{
+    width: 150px;
+  }
+}
+/* Section */
+.kitchen-plan{
+  background: whitesmoke;
+  padding: 80px 5%;
+  overflow: hidden;
+}
+
+.kitchen-container{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* LEFT CONTENT */
+.kitchen-content{
+  flex: 1;
+  animation: slideLeft 1s ease forwards;
+}
+
+.kitchen-content h2{
+  font-size: 34px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.kitchen-content p{
+  color: #777;
+  line-height: 1.6;
+  max-width: 420px;
+  margin-bottom: 30px;
+}
+
+/* Button */
+.kitchen-btn{
+  display: inline-block;
+  padding: 14px 35px;
+  background: #d2b48c;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-bottom: 40px;
+}
+
+.kitchen-btn:hover{
+  background: #b8956a;
+  transform: translateY(-3px);
+}
+
+/* Floor Plan */
+.floor-plan img{
+  width: 200px;
+  opacity: 0.6;
+  transition: 0.4s;
+}
+
+.floor-plan img:hover{
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* RIGHT IMAGE */
+.kitchen-image{
+  flex: 1;
+  position: relative;
+  animation: slideRight 1s ease forwards;
+}
+
+.kitchen-image img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Play Button */
+.play-btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: 0.3s;
+}
+
+.play-btn span{
+  font-size: 32px;
+  color: #333;
+}
+
+.play-btn:hover{
+  background: #d2b48c;
+  color: white;
+}
+
+/* Animations */
+@keyframes slideLeft{
+  from{ opacity:0; transform:translateX(-60px); }
+  to{ opacity:1; transform:translateX(0); }
+}
+
+@keyframes slideRight{
+  from{ opacity:0; transform:translateX(60px); }
+  to{ opacity:1; transform:translateX(0); }
+}
+
+@keyframes pulse{
+  0%{ box-shadow: 0 0 0 0 rgba(210,180,140,0.5);}
+  70%{ box-shadow: 0 0 0 25px rgba(210,180,140,0);}
+  100%{ box-shadow: 0 0 0 0 rgba(210,180,140,0);}
+}
+
+/* VIDEO MODAL */
+.video-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  z-index: 999;
+}
+
+.video-modal.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-wrapper{
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+  animation: zoomIn 0.4s ease;
+}
+
+.video-wrapper iframe{
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.close-btn{
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes zoomIn{
+  from{ transform:scale(0.8); opacity:0; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .kitchen-container{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .kitchen-content p{
+    margin: auto;
+  }
+}
+
+@media(max-width:768px){
+  .video-wrapper iframe{
+    height: 300px;
+  }
+
+  .play-btn{
+    width: 75px;
+    height: 75px;
+  }
+}
+.project-gallery{
+  background: #c7a27c;
+  padding: 100px 5%;
+  overflow: hidden;
+}
+
+.gallery-container{
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  gap: 60px;
+}
+
+/* LEFT SIDE */
+.gallery-content{
+  flex: 1;
+  color: white;
+  animation: fadeLeft 1s ease forwards;
+}
+
+.gallery-content h2{
+  font-size: 48px;
+  letter-spacing: 6px;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+
+.gallery-content p{
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 420px;
+}
+
+/* BUTTON */
+.gallery-btn{
+  display: inline-block;
+  padding: 15px 35px;
+  background: white;
+  color: #333;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.gallery-btn:hover{
+  background: #eee;
+  transform: translateY(-3px);
+}
+
+/* RIGHT GRID */
+.gallery-grid{
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  animation: fadeRight 1s ease forwards;
+}
+
+.gallery-item{
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+/* Masonry Sizes */
+.small{
+  height: 250px;
+}
+
+.tall{
+  grid-row: span 2;
+  height: 100%;
+}
+
+.wide{
+  grid-column: span 2;
+  height: 250px;
+}
+
+/* Hover Effect */
+.gallery-item:hover img{
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeLeft{
+  from{ opacity:0; transform:translateX(-60px);}
+  to{ opacity:1; transform:translateX(0);}
+}
+
+@keyframes fadeRight{
+  from{ opacity:0; transform:translateX(60px);}
+  to{ opacity:1; transform:translateX(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .gallery-container{
+    flex-direction: column;
+  }
+
+  .gallery-content{
+    text-align: center;
+  }
+
+  .gallery-content p{
+    margin: auto;
+  }
+
+  .gallery-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:768px){
+  .gallery-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .wide{
+    grid-column: span 1;
+  }
+
+  .tall{
+    grid-row: span 1;
+  }
+
+  .gallery-content h2{
+    font-size: 32px;
+  }
+}
+.schedule-visit{
+  background: #f3f3f3;
+  padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-container{
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* LEFT IMAGE */
+.schedule-bg{
+  flex: 1;
+  opacity: 0.15;
+  animation: fadeLeft 1s ease forwards;
+}
+
+.schedule-bg img{
+  width: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT CONTENT */
+.schedule-content{
+  flex: 1;
+  animation: fadeRight 1s ease forwards;
+}
+
+.schedule-content h2{
+  font-size: 42px;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+}
+
+.schedule-content p{
+  color: #666;
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* HOURS */
+.schedule-hours{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.day h4{
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.day span{
+  color: #c7a27c;
+  font-weight: 500;
+}
+
+.closed{
+  color: #999;
+}
+
+.divider{
+  width: 1px;
+  height: 40px;
+  background: #ddd;
+}
+
+/* BUTTON */
+.schedule-btn{
+  display: inline-block;
+  padding: 14px 40px;
+  background: #c7a27c;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.schedule-btn:hover{
+  background: #b38b63;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeLeft{
+  from{ opacity:0; transform:translateX(-60px);}
+  to{ opacity:1; transform:translateX(0);}
+}
+
+@keyframes fadeRight{
+  from{ opacity:0; transform:translateX(60px);}
+  to{ opacity:1; transform:translateX(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .schedule-container{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .schedule-hours{
+    flex-direction: column;
+  }
+
+  .divider{
+    display: none;
+  }
+
+  .schedule-content p{
+    margin: auto;
+  }
+}
+
+@media(max-width:768px){
+  .schedule-content h2{
+    font-size: 28px;
+  }
+}
+
+/* ================= SECTION ================= */
+
+.testimonial-section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 10%;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Layout */
+.testimonial-wrapper{
+  display:flex;
+  align-items:center;
+  gap:80px;
+  max-width:1200px;
+  width:100%;
+}
+
+/* Left Box */
+.left-box{
+  background:#c8a77c;
+  padding:60px 40px 0 40px;
+  position:relative;
+  width:380px;
+  animation:slideLeft 1s ease;
+}
+
+.left-box h2{
+  color:white;
+  letter-spacing:8px;
+  font-weight:600;
+  margin-bottom:40px;
+  font-size:28px;
+}
+
+/* Image */
+.client-img{
+  width:100%;
+  transform:translateY(40px);
+  transition:0.4s;
+}
+
+.client-img img{
+  width:100%;
+  display:block;
+}
+
+/* Right Content */
+.right-content{
+  max-width:600px;
+  animation:fadeUp 1.2s ease;
+}
+
+.quote-icon{
+  font-size:60px;
+  color:#999;
+  margin-bottom:20px;
+}
+
+.right-content p{
+  font-size:18px;
+  color:#555;
+  line-height:1.9;
+  margin-bottom:30px;
+}
+
+/* Stars */
+.stars{
+  color:#c8a77c;
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.client-name{
+  color:#c8a77c;
+  letter-spacing:2px;
+  font-weight:500;
+}
+
+/* Hover effect */
+.left-box:hover .client-img{
+  transform:translateY(20px) scale(1.03);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes slideLeft{
+  from{
+    opacity:0;
+    transform:translateX(-80px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(60px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+  .testimonial-wrapper{
+    flex-direction:column;
+    gap:50px;
+    text-align:center;
+  }
+
+  .left-box{
+    width:100%;
+    max-width:400px;
+  }
+
+  .right-content{
+    max-width:100%;
+  }
+}
+
+@media(max-width:600px){
+  .left-box{
+    padding:40px 20px 0 20px;
+  }
+
+  .left-box h2{
+    font-size:22px;
+    letter-spacing:4px;
+  }
+
+  .right-content p{
+    font-size:16px;
+  }
+}
+</style>
+
+
+</style>
+</head>
+
+
+
+<section class="contractor">
+
+  <div class="contractor-wrapper">
+
+    <div class="left-image reveal"></div>
+
+    <div class="content reveal">
+      <h2>COMMERICAL<br>CONTRACTOR</h2>
+      <p>
+        Viverra vitae congue eu consequat. Dictum sit amet justo donec enim diam vulputate ut pharetra.
+        Vel pretium lectus quam id leo tristique sollicitudin nibh sit amet commodo nulla.
+      </p>
+    </div>
+
+    <div class="left-image reveal"></div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+
+    <div class="stat">
+      <h3 class="counter" data-target="1200">0</h3>
+      <p>RESIDENTIAL WORKS</p>
+    </div>
+
+    <div class="stat">
+      <h3 class="counter" data-target="600">0</h3>
+      <p>INDUSTRIAL WORKS</p>
+    </div>
+
+    <div class="stat">
+      <h3 class="counter" data-target="6">0</h3>
+      <p>CONSTRUCTION WORK</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="customize">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Customize Your House</h2>
+      <p>
+        Elementum sagittis vitae et leo. Aliquet sagittis id consectetur purus ut.
+        Quam id leo in vitae. Venenatis urna cursus eget nunc scelerisque viverra mauris in.
+      </p>
+    </div>
+
+    <div class="house-grid">
+
+      <!-- Card 1 -->
+      <div class="house-card">
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="">
+          <span class="badge">Featured</span>
+          <div class="overlay">
+            <span>HOUSE</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>3 BHK Linked House</h3>
+          <p>Bed Rooms 3 / Kitchen 2 / Hall 2</p>
+          <div class="price">
+            <span class="old">$10500</span>
+            <span class="new">$8000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="house-card">
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="">
+          <span class="badge">Featured</span>
+          <div class="overlay">
+            <span>HOUSE</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>2 BHK Long House</h3>
+          <p>Bed Rooms 3 / Kitchen 2 / Hall 2</p>
+          <div class="price">
+            <span class="old">$22500</span>
+            <span class="new">$20000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="house-card">
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e" alt="">
+          <span class="badge">Featured</span>
+          <div class="overlay">
+            <span>HOUSE</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>2 BHK Stack House</h3>
+          <p>Bed Rooms 3 / Kitchen 2 / Hall 2</p>
+          <div class="price">
+            <span class="old">$12500</span>
+            <span class="new">$10000</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="living-plan">
+  <div class="living-container">
+
+    <!-- LEFT IMAGE -->
+    <div class="living-image">
+      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea" alt="Living Room">
+      
+      <div class="play-btn" onclick="openVideo()">
+        <span>▶</span>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="living-content">
+      <h2>LIVING ROOM PLAN</h2>
+      <p>
+        Aliquet bibendum enim facilisis gravida neque convallis a cras semper.
+        Risus at ultrices mi tempus.
+      </p>
+
+      <a href="404.html" class="plan-btn">More Plans</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+  <div class="video-wrapper">
+    <span class="close-btn" onclick="closeVideo()">✖</span>
+    <iframe id="youtubeVideo"
+      src=""
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+<section class="kitchen-plan">
+  <div class="kitchen-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="kitchen-content">
+      <h2>LUXURY KITCHEN PLAN</h2>
+      <p>
+        Hendrerit gravida rutrum quisque non. Tristique risus nec feugiat in 
+        fermentum posuere sollicitudin tempor id eu.
+      </p>
+
+      <a href="404.html" class="kitchen-btn">More Plans</a>
+
+      <div class="floor-plan">
+        <img src="https://cdn-icons-png.flaticon.com/512/69/69524.png" alt="Plan">
+      </div>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="kitchen-image">
+      <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Kitchen">
+      
+      <div class="play-btn" onclick="openKitchenVideo()">
+        <span>▶</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="kitchenVideoModal">
+  <div class="video-wrapper">
+    <span class="close-btn" onclick="closeKitchenVideo()">✖</span>
+    <iframe id="kitchenYoutube"
+      src=""
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+<section class="project-gallery">
+  <div class="gallery-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="gallery-content">
+      <h2>PROJECT<br>GALLERY</h2>
+
+      <p>
+        Vestibulum morbi blandit cursus risus at ultrices. Mattis molestie a
+        iaculis at erat pellentesque curabitur vitae nunc sed velit. Pretium
+        lectus quam id leo in vitae.
+      </p>
+
+      <a href="404.html" class="gallery-btn">View 52 Photos →</a>
+    </div>
+
+    <!-- RIGHT GALLERY -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item small">
+        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea" alt="">
+      </div>
+
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="">
+      </div>
+
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="">
+      </div>
+
+      <div class="gallery-item small">
+        <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e" alt="">
+      </div>
+
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+
+/* Scroll Reveal Animation */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("show");
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* Counter Animation */
+const counters = document.querySelectorAll(".counter");
+let started = false;
+
+function startCounter(){
+  counters.forEach(counter=>{
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
+    const increment = target / 150;
+
+    function update(){
+      count += increment;
+      if(count < target){
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(update);
+      }else{
+        counter.innerText = target;
+      }
+    }
+    update();
+  });
+}
+
+window.addEventListener("scroll",()=>{
+  const stats = document.querySelector(".stats");
+  if(stats.getBoundingClientRect().top < window.innerHeight && !started){
+    startCounter();
+    started = true;
+  }
+});
+</script>
+<script>
+function openVideo(){
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("youtubeVideo");
+
+  iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; 
+  modal.classList.add("active");
+}
+
+function closeVideo(){
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("youtubeVideo");
+
+  iframe.src = "";
+  modal.classList.remove("active");
+}
+
+// Close when clicking outside video
+document.getElementById("videoModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closeVideo();
+  }
+});
+</script>
+<script>
+function openKitchenVideo(){
+  const modal = document.getElementById("kitchenVideoModal");
+  const iframe = document.getElementById("kitchenYoutube");
+
+  iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+  modal.classList.add("active");
+}
+
+function closeKitchenVideo(){
+  const modal = document.getElementById("kitchenVideoModal");
+  const iframe = document.getElementById("kitchenYoutube");
+
+  iframe.src = "";
+  modal.classList.remove("active");
+}
+
+document.getElementById("kitchenVideoModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closeKitchenVideo();
+  }
+});
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule a Visit</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#f3f3f3;
+  overflow-x:hidden;
+} */
+
+/* ================= SECTION ================= */
+
+.visit-section{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:80px 10%;
+  background:#efefef;
+}
+
+/* Gold Line Background */
+.visit-section::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:60%;
+  height:100%;
+  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=60") no-repeat center;
+  background-size:cover;
+  opacity:0.08;
+}
+
+/* Content */
+.visit-content{
+  position:relative;
+  max-width:550px;
+  animation:fadeUp 1.2s ease;
+}
+
+.visit-content h1{
+  font-size:48px;
+  letter-spacing:6px;
+  font-weight:600;
+  color:#2c2c2c;
+  margin-bottom:20px;
+}
+
+.visit-content p{
+  color:#666;
+  line-height:1.8;
+  margin-bottom:40px;
+}
+
+/* Time Grid */
+.time-grid{
+  display:flex;
+  gap:40px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+
+.time-box{
+  min-width:140px;
+}
+
+.time-box h4{
+  font-weight:600;
+  color:#2c2c2c;
+  margin-bottom:10px;
+}
+
+.time-box span{
+  color:#c8a77c;
+  font-weight:500;
+}
+
+/* Button */
+.btn{
+  display:inline-block;
+  padding:15px 40px;
+  background:#c8a77c;
+  color:#fff;
+  text-decoration:none;
+  letter-spacing:2px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#b89568;
+  transform:translateY(-3px);
+}
+
+/* Scroll Top Button */
+.scroll-top{
+  position:fixed;
+  right:30px;
+  bottom:30px;
+  background:#c8a77c;
+  color:#fff;
+  padding:12px 16px;
+  cursor:pointer;
+  display:none;
+  transition:0.3s;
+}
+
+.scroll-top:hover{
+  background:#b89568;
+}
+
+/* Animation */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+  .visit-section{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .visit-section::before{
+    width:100%;
+  }
+
+  .visit-content{
+    max-width:100%;
+  }
+
+  .time-grid{
+    justify-content:center;
+  }
+}
+
+@media(max-width:600px){
+  .visit-content h1{
+    font-size:32px;
+    letter-spacing:3px;
+  }
+}
+/* ================= SECTION ================= */
+
+.testimonial-section{
+  padding:100px 10%;
+  overflow:hidden;
+  position:relative;
+}
+
+.testimonial-wrapper{
+  display:flex;
+  align-items:center;
+  gap:80px;
+  max-width:1200px;
+  margin:auto;
+  flex-wrap:wrap;
+}
+
+/* Left Box */
+.left-box{
+  background:#c8a77c;
+  padding:60px 40px 0 40px;
+  width:350px;
+  position:relative;
+  overflow:hidden;
+}
+
+.left-box h2{
+  color:white;
+  letter-spacing:6px;
+  margin-bottom:40px;
+}
+
+/* Floating Animation */
+.client-img{
+  animation:float 4s ease-in-out infinite;
+}
+
+.client-img img{
+  width:100%;
+  display:block;
+}
+
+/* Right Side Slider */
+.slider-container{
+  flex:1;
+  overflow:hidden;
+  position:relative;
+}
+
+.slider{
+  display:flex;
+  transition:transform 0.8s ease-in-out;
+}
+
+.slide{
+  min-width:100%;
+  padding:20px;
+}
+
+.quote{
+  font-size:60px;
+  color:#999;
+  margin-bottom:20px;
+  animation:fadeIn 1s ease;
+}
+
+.slide p{
+  font-size:18px;
+  color:#555;
+  line-height:1.9;
+  margin-bottom:25px;
+}
+
+/* Star Animation */
+.stars{
+  color:#c8a77c;
+  font-size:20px;
+  margin-bottom:15px;
+  animation:starPop 1.5s ease;
+}
+
+.client-name{
+  color:#c8a77c;
+  letter-spacing:2px;
+}
+
+/* Animations */
+@keyframes float{
+  0%{ transform:translateY(0px);}
+  50%{ transform:translateY(-15px);}
+  100%{ transform:translateY(0px);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes starPop{
+  0%{opacity:0; transform:scale(0.5);}
+  100%{opacity:1; transform:scale(1);}
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .testimonial-wrapper{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .left-box{
+    width:100%;
+    max-width:400px;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="visit-section">
+
+  <div class="visit-content">
+    <h1>SCHEDULE A VISIT</h1>
+    <p>
+      Hendrerit gravida rutrum quisque non. Morbi tristique senectus et netus et malesuada.
+      Dolor purus non enim praesent elementum.
+    </p>
+
+    <div class="time-grid">
+      <div class="time-box">
+        <h4>Monday - Friday</h4>
+        <span>9:00am - 4:30pm</span>
+      </div>
+
+      <div class="time-box">
+        <h4>Saturday</h4>
+        <span>9:00am - 1:30pm</span>
+      </div>
+
+      <div class="time-box">
+        <h4>Sunday</h4>
+        <span>Closed</span>
+      </div>
+    </div>
+
+    <a href="404.html" class="btn">CONTACT US</a>
+  </div>
+
+</section>
+</section>
+
+
+<div class="scroll-top" onclick="scrollToTop()">▲</div>
+
+<script>
+window.addEventListener("scroll", function(){
+  const scrollBtn = document.querySelector(".scroll-top");
+  if(window.scrollY > 200){
+    scrollBtn.style.display = "block";
+  }else{
+    scrollBtn.style.display = "none";
+  }
+});
+
+function scrollToTop(){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+</script>
+<style>
+
+/* ================= SECTION ================= */
+
+.testimonial-section{
+  padding:100px 10%;
+  overflow:hidden;
+  position:relative;
+}
+
+.testimonial-wrapper{
+  display:flex;
+  align-items:center;
+  gap:80px;
+  max-width:1200px;
+  margin:auto;
+  flex-wrap:wrap;
+}
+
+/* Left Box */
+.left-box{
+  background:#c8a77c;
+  padding:60px 40px 0 40px;
+  width:350px;
+  position:relative;
+  overflow:hidden;
+}
+
+.left-box h2{
+  color:white;
+  letter-spacing:6px;
+  margin-bottom:40px;
+}
+
+/* Floating Animation */
+.client-img{
+  animation:float 4s ease-in-out infinite;
+}
+
+.client-img img{
+  width:100%;
+  display:block;
+}
+
+/* Right Side Slider */
+.slider-container{
+  flex:1;
+  overflow:hidden;
+  position:relative;
+}
+
+.slider{
+  display:flex;
+  transition:transform 0.8s ease-in-out;
+}
+
+.slide{
+  min-width:100%;
+  padding:20px;
+}
+
+.quote{
+  font-size:60px;
+  color:#999;
+  margin-bottom:20px;
+  animation:fadeIn 1s ease;
+}
+
+.slide p{
+  font-size:18px;
+  color:#555;
+  line-height:1.9;
+  margin-bottom:25px;
+}
+
+/* Star Animation */
+.stars{
+  color:#c8a77c;
+  font-size:20px;
+  margin-bottom:15px;
+  animation:starPop 1.5s ease;
+}
+
+.client-name{
+  color:#c8a77c;
+  letter-spacing:2px;
+}
+
+/* Animations */
+@keyframes float{
+  0%{ transform:translateY(0px);}
+  50%{ transform:translateY(-15px);}
+  100%{ transform:translateY(0px);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes starPop{
+  0%{opacity:0; transform:scale(0.5);}
+  100%{opacity:1; transform:scale(1);}
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .testimonial-wrapper{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .left-box{
+    width:100%;
+    max-width:400px;
+  }
+}
+/* ================= CURVE SECTION ================= */
+
+.curve-section{
+    position:relative;
+    background:#efefef;
+    padding:160px 10% 120px 10%;
+    text-align:center;
+    overflow:visible; /* IMPORTANT FIX */
+}
+
+/* Curved Top Shape */
+.curve-section::before{
+    content:"";
+    position:absolute;
+    top:-100px;
+    left:0;
+    width:100%;
+    height:200px;
+    background:#efefef;
+    border-bottom-left-radius:50% 100%;
+    border-bottom-right-radius:50% 100%;
+    z-index:1;
+}
+
+/* Scroll Circle */
+.scroll-circle{
+    position:absolute;
+    top:-70px;   /* Adjusted */
+    left:50%;
+    transform:translateX(-50%);
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:white;
+    border:2px solid #c8a77c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    z-index:3;
+}
+
+/* Rotating Text */
+.circle-text{
+    position:absolute;
+    width:100%;
+    height:100%;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    animation:rotateText 12s linear infinite;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#444;
+}
+
+.arrow{
+    font-size:26px;
+    color:#c8a77c;
+    animation:bounce 2s infinite;
+}
+
+/* Center Content */
+.curve-content{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.curve-content p{
+    font-size:22px;
+    letter-spacing:4px;
+    line-height:1.8;
+    color:#444;
+    font-weight:300;
+}
+
+/* Animations */
+@keyframes rotateText{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+}
+
+/* Responsive */
+@media(max-width:600px){
+
+    .scroll-circle{
+        width:100px;
+        height:100px;
+        top:-50px;
+    }
+
+    .curve-content p{
+        font-size:15px;
+        letter-spacing:1px;
+    }
+
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<section class="testimonial-section">
+
+  <div class="testimonial-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="left-box">
+      <h2>CLIENT<br>FEEDBACK</h2>
+
+      <div class="client-img">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80" alt="Client">
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="slider-container">
+      <div class="slider" id="testimonialSlider">
+
+        <!-- Slide 1 -->
+        <div class="slide active">
+          <div class="quote">❝</div>
+          <p>
+            Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl.
+            Aliquet nec ullamcorper sit amet risus. Lectus sit amet est placerat.
+          </p>
+          <div class="stars">★ ★ ★ ★ ☆</div>
+          <div class="client-name">OLIVER NOAH - CEO</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="quote">❝</div>
+          <p>
+            Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque.
+            Ut sem viverra aliquet eget sit amet tellus.
+          </p>
+          <div class="stars">★ ★ ★ ★ ★</div>
+          <div class="client-name">EMMA WILLIAMS - MANAGER</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="quote">❝</div>
+          <p>
+            Amet consectetur adipiscing elit ut aliquam purus sit.
+            Enim nunc faucibus a pellentesque sit amet porttitor.
+          </p>
+          <div class="stars">★ ★ ★ ★ ☆</div>
+          <div class="client-name">DAVID MILLER - FOUNDER</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<section class="curve-section">
+
+    <div class="scroll-circle">
+        <div class="circle-text">
+            SCROLL TO EXPLORE • SCROLL TO EXPLORE •
+        </div>
+        <div class="arrow">↓</div>
+    </div>
+
+    <div class="curve-content">
+        <p>
+            TORTOR PRETIUM VIVERRA SUSPENDISSE POTENTI NULLAM.
+            PHARETRA DIAM SIT AMET NISL SUSCIPIT ADIPISCING BIBENDUM EST.
+            NETUS ET MALESUADA FAMES AC TURPIS EGESTAS INTEGER
+            EGET ALIQUET. PRETIUM NIBH IPSUM CONSEQUAT.
+        </p>
+    </div>
+
+</section>
+<footer class="realestate-footer">
+
+  <div class="footer-container">
+
+    <!-- Left Column -->
+    <div class="footer-col footer-contact">
+      <h2 class="footer-logo">REAL <span>ESTATE</span></h2>
+
+      <h4>LET'S WORK TOGETHER</h4>
+      <p>office@nashvillerealtor.com</p>
+      <p>+1 (800) 239-9436</p>
+
+      <h4>NASHVILLE OFFICE</h4>
+      <p>1183 Vaughn Street, Level 5,<br>Nashville, TN 37203</p>
+
+      <div class="social-icons">
+        <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+        <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="404.html"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-col">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="404.html">New Properties</a></li>
+        <li><a href="404.html">Sell Your Property</a></li>
+        <li><a href="404.html">Press Releases</a></li>
+        <li><a href="404.html">Market Insights</a></li>
+        <li><a href="404.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Useful Links -->
+    <div class="footer-col">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="404.html">About Us</a></li>
+        <li><a href="404.html">Meet the Team</a></li>
+        <li><a href="404.html">Neighborhoods</a></li>
+        <li><a href="404.html">Sold Properties</a></li>
+        <li><a href="404.html">Blog</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p>
+      Managing Partner & Lead Broker | Jason Malfrey
+    </p>
+    <p class="disclaimer">
+      WP Broker and all associated designs are fictional demo content.
+      Property information is for educational purposes only.
+    </p>
+  </div>
+
+</footer>
+
+<style>/* ================= TESTIMONIAL SECTION ================= */
+
+.testimonial-section{
+  padding:100px 8%;
+  background:#efefef;
+  overflow:hidden;
+}
+
+.testimonial-wrapper{
+  display:flex;
+  align-items:center;
+  gap:80px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* Left Box */
+.left-box{
+  background:#c8a77c;
+  padding:60px 40px 0 40px;
+  width:360px;
+  position:relative;
+  overflow:hidden;
+  animation:slideLeft 1s ease;
+}
+
+.left-box h2{
+  color:white;
+  letter-spacing:6px;
+  font-weight:600;
+  margin-bottom:40px;
+}
+
+/* Floating Image */
+.client-img{
+  animation:float 5s ease-in-out infinite;
+}
+
+.client-img img{
+  width:100%;
+  display:block;
+  border-radius:8px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Right Slider */
+.slider-container{
+  flex:1;
+  position:relative;
+}
+
+.slide{
+  position:absolute;
+  opacity:0;
+  transform:translateX(50px);
+  transition:all 0.8s ease;
+}
+
+.slide.active{
+  opacity:1;
+  transform:translateX(0);
+  position:relative;
+}
+
+.quote{
+  font-size:60px;
+  color:#999;
+  margin-bottom:20px;
+}
+
+.slide p{
+  font-size:18px;
+  line-height:1.9;
+  color:#555;
+  margin-bottom:25px;
+}
+
+/* Stars */
+.stars{
+  color:#c8a77c;
+  font-size:20px;
+  margin-bottom:15px;
+  animation:starGlow 2s infinite alternate;
+}
+
+.client-name{
+  color:#c8a77c;
+  letter-spacing:2px;
+  font-weight:500;
+}
+
+/* Animations */
+@keyframes slideLeft{
+  from{opacity:0; transform:translateX(-80px);}
+  to{opacity:1; transform:translateX(0);}
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes starGlow{
+  from{opacity:0.6;}
+  to{opacity:1;}
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .testimonial-wrapper{
+    flex-direction:column;
+    text-align:center;
+    gap:50px;
+  }
+
+  .left-box{
+    width:100%;
+    max-width:400px;
+  }
+
+  .slide{
+    position:relative;
+  }
+}
+/* ================= IMPROVED MOBILE RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+  .testimonial-wrapper{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .left-box{
+    width: 100%;
+    max-width: 420px;
+    padding: 50px 30px 0 30px;
+  }
+
+  .client-img img{
+    border-radius: 12px;
+  }
+
+  .slider-container{
+    width: 100%;
+  }
+
+  .slide{
+    position: relative;
+    transform: none !important;
+  }
+
+  .quote{
+    font-size: 50px;
+  }
+
+  .slide p{
+    font-size: 17px;
+    padding: 0 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .testimonial-section{
+    padding: 70px 20px;
+  }
+
+  .left-box{
+    padding: 40px 20px 0 20px;
+  }
+
+  .left-box h2{
+    font-size: 22px;
+    letter-spacing: 4px;
+  }
+
+  .client-img img{
+    width: 100%;
+  }
+
+  .quote{
+    font-size: 40px;
+  }
+
+  .slide p{
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .stars{
+    font-size: 18px;
+  }
+
+  .client-name{
+    font-size: 14px;
+  }
+}
+/* ================= DARK REAL ESTATE FOOTER ================= */
+
+.realestate-footer{
+  background:#050814;
+  color:#cfd3e0;
+  padding:100px 8% 40px;
+  font-family:'Poppins', sans-serif;
+}
+
+/* Container */
+.footer-container{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap:80px;
+}
+
+/* Logo */
+.footer-logo{
+  color:white;
+  font-weight:600;
+  margin-bottom:30px;
+}
+
+.footer-logo span{
+  color:#c8a77c;
+}
+
+/* Headings */
+.footer-col h3,
+.footer-col h4{
+  color:white;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.footer-col p{
+  font-size:14px;
+  margin-bottom:10px;
+  color:#aab0c3;
+}
+
+/* Links */
+.footer-col ul{
+  list-style:none;
+}
+
+.footer-col ul li{
+  margin-bottom:12px;
+}
+
+.footer-col ul li a{
+  text-decoration:none;
+  color:#aab0c3;
+  transition:0.3s;
+  position:relative;
+}
+
+.footer-col ul li a:hover{
+  color:#c8a77c;
+  padding-left:6px;
+}
+
+/* Social */
+.social-icons{
+  margin-top:30px;
+}
+
+.social-icons a{
+  display:inline-block;
+  margin-right:15px;
+  font-size:18px;
+  color:#aab0c3;
+  transition:0.3s;
+}
+
+.social-icons a:hover{
+  color:#c8a77c;
+  transform:translateY(-6px);
+}
+
+/* Divider */
+.footer-divider{
+  height:1px;
+  background:rgba(255,255,255,0.08);
+  margin:60px 0 30px;
+}
+
+/* Bottom */
+.footer-bottom{
+  text-align:left;
+  font-size:14px;
+}
+
+.footer-bottom p{
+  margin-bottom:15px;
+}
+
+.disclaimer{
+  color:#8f95a9;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* ================= ANIMATION ================= */
+
+.footer-col{
+  animation:fadeUp 1s ease forwards;
+  opacity:0;
+}
+
+.footer-col:nth-child(1){ animation-delay:0.2s;}
+.footer-col:nth-child(2){ animation-delay:0.4s;}
+.footer-col:nth-child(3){ animation-delay:0.6s;}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+  .footer-container{
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .footer-container{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .footer-bottom{
+    text-align:center;
+  }
+
+  .social-icons{
+    margin-top:20px;
+  }
+
+}
+
+</style>
+<script>
+const slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function showSlide(index){
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function autoSlide(){
+  current++;
+  if(current >= slides.length){
+    current = 0;
+  }
+  showSlide(current);
+}
+
+setInterval(autoSlide, 4000);
+function showSlide(index){
+  slides.forEach(slide => {
+    slide.classList.remove("active");
+  });
+  slides[index].classList.add("active");
+}
+
+</script>
+</body>
+</html>
+
+
